@@ -29,6 +29,7 @@ class Card extends React.Component {
         </div>
         <div className="card__footer">
           {this.state.hidden ? null : <AddTask stage={this.props.stage} />}
+    
           <button onClick={this.handleClick} className="card__footer__btn">
             add a task
           </button>
