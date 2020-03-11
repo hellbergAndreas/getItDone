@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-  stages: ["backLog", `I'm on it!`, "this shit is done!", "save for later"]
+  stages: ["backLog", `I'm on it!`, "this shit is done!"]
 }
 
 const stagesReducer = (state = INITIAL_STATE, action) => {

@@ -35,16 +35,27 @@ class Task extends React.Component {
           .map(el => {
             return (
               <div className="task">
-                <h1 className="task__header">{el.header}</h1>
+                <div className="task__header">
+                  <h1 className="task__header__header">{el.header}</h1>
+                  <button
+                    onClick={e => this.handleClick(el.id, e)}
+                    id="delete"
+                    classname="deleteBtn task__header__delete"
+                  >
+                    x
+                  </button>
+                </div>
                 <span className="task__body">{el.description}</span>
                 <div className="buttons">
                   <button
+                    className="btn"
                     id={`I'm on it!`}
                     onClick={e => this.handleClick(el.id, e)}
                   >
                     on it
                   </button>
                   <button
+                    className="btn"
                     id={"this shit is done!"}
                     onClick={e => this.handleClick(el.id, e)}
                   >

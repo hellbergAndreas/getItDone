@@ -7,10 +7,43 @@
   padding: 5px;
   display: flex;
   flex-direction: column;
+
+  box-shadow: 2px 2px 2px 1px rgba(41, 77, 89, 0.285);
+
   &__header {
-    font-size: 0.9em;
+    display: flex;
+    justify-content: space-between;
+
+    &__header {
+      font-size: 0.9em;
+    }
+    &__delete {
+    }
   }
   &__body {
     font-size: 0.8em;
+  }
+}
+
+.btn {
+  background-color: #c4d1d7;
+  color: black;
+  margin-right: 5px;
+  margin-top: 10px;
+  font-weight: 600;
+  &:hover {
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+  }
+}
+
+#delete {
+  width: 18px;
+  height: 16px;
+  font-weight: 600;
+  font-size: 0.5em;
+  &:hover {
+    background-color: rgb(211, 47, 47);
   }
 }
