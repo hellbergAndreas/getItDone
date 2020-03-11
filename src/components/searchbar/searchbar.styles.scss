@@ -1,0 +1,14 @@
+.searchbar {
+  &__input {
+    height: 45px;
+    width: 150px;
+    color: white;
+    background-color: rgb(147, 145, 162);
+
+    border-radius: 5px;
+    &:focus {
+      outline: none;
+      background-color: rgb(47, 46, 53);
+    }
+  }
+}

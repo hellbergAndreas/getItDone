@@ -1,0 +1,16 @@
+.task {
+  margin: auto;
+  margin-top: 4px;
+  width: 97%;
+  background: white;
+  min-height: 70px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  &__header {
+    font-size: 0.9em;
+  }
+  &__body {
+    font-size: 0.8em;
+  }
+}
