@@ -30,6 +30,7 @@ class Task extends React.Component {
       ? deleteTaskDocument("taskCollection", id)
       : updateTaskDocument("taskCollection", id, e.target.id)
   }
+
   render() {
     const theTasks = this.props.tasks.tasks
     return (
@@ -50,16 +51,26 @@ class Task extends React.Component {
                   </button>
                 </div>
                 <span className="task__body">{el.description}</span>
+                {}
                 <div className="buttons">
                   <button
-                    className="btn"
+                    className={
+                      el.stage === `I'm on it!` ||
+                      el.stage === `this shit is done!`
+                        ? "hidden"
+                        : "btn"
+                    }
                     id={`I'm on it!`}
                     onClick={e => this.handleClick(el.id, e)}
                   >
                     on it
                   </button>
                   <button
-                    className="btn"
+                    className={
+                      el.stage === `this shit is done!`
+                        ? "hidden" + " " + "btn"
+                        : "btn"
+                    }
                     id={"this shit is done!"}
                     onClick={e => this.handleClick(el.id, e)}
                   >

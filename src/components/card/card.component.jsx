@@ -24,8 +24,9 @@ class Card extends React.Component {
           <h1 className="card__header__h1">{this.props.stage}</h1>
           <button className="card__header__button">v</button>
         </div>
-        <Task stage={this.props.stage} />
-        <div className="card__content"></div>
+        <div className="card__content">
+          <Task stage={this.props.stage} />
+        </div>
         <div className="card__footer">
           {this.state.hidden ? null : <AddTask stage={this.props.stage} />}
           <button onClick={this.handleClick} className="card__footer__btn">
