@@ -4,7 +4,10 @@ import {
   firestore,
   converCollectionsSnapshotToMap
 } from "../../firebase/firebase.utils"
-import { updateTaskDocument } from "../../firebase/firebase.utils"
+import {
+  updateTaskDocument,
+  deleteTaskDocument
+} from "../../firebase/firebase.utils"
 import { updateTasks } from "../../redux/task-reducer/task-actions"
 import "./task.styles.scss"
 
@@ -23,8 +26,9 @@ class Task extends React.Component {
     })
   }
   handleClick(id, e) {
-    console.log(e.target.id)
-    updateTaskDocument("taskCollection", id, e.target.id)
+    e.target.id === "delete"
+      ? deleteTaskDocument("taskCollection", id)
+      : updateTaskDocument("taskCollection", id, e.target.id)
   }
   render() {
     const theTasks = this.props.tasks.tasks

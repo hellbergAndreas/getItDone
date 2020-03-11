@@ -70,6 +70,13 @@ export const addTaskDocument = (collectionKey, task) => {
     })
 }
 
+export const deleteTaskDocument = (collectionKey, key) => {
+  let stringKey = key.toString()
+  db.collection(collectionKey)
+    .doc(stringKey)
+    .delete()
+}
+
 export const updateTaskDocument = (collectionKey, key, newStage) => {
   let stringKey = key.toString()
   db.collection(collectionKey)
