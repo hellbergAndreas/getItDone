@@ -4,6 +4,7 @@ import {
   firestore,
   converCollectionsSnapshotToMap
 } from "../../firebase/firebase.utils"
+import { updateTaskDocument } from "../../firebase/firebase.utils"
 import { updateTasks } from "../../redux/task-reducer/task-actions"
 import "./task.styles.scss"
 
@@ -12,7 +13,7 @@ class Task extends React.Component {
     super(props)
   }
 
-  unsubscribeFromSnapshot = null
+  // unsubscribeFromSnapshot = null
   componentDidMount() {
     const collectionRef = firestore.collection("taskCollection")
     collectionRef.onSnapshot(async snapshot => {
@@ -20,6 +21,10 @@ class Task extends React.Component {
 
       this.props.updateTasks(tasks)
     })
+  }
+  handleClick(id, e) {
+    console.log(e.target.id)
+    updateTaskDocument("taskCollection", id, e.target.id)
   }
   render() {
     const theTasks = this.props.tasks.tasks
@@ -33,8 +38,18 @@ class Task extends React.Component {
                 <h1 className="task__header">{el.header}</h1>
                 <span className="task__body">{el.description}</span>
                 <div className="buttons">
-                  <button>on it</button>
-                  <button>done it</button>
+                  <button
+                    id={`I'm on it!`}
+                    onClick={e => this.handleClick(el.id, e)}
+                  >
+                    on it
+                  </button>
+                  <button
+                    id={"this shit is done!"}
+                    onClick={e => this.handleClick(el.id, e)}
+                  >
+                    done it
+                  </button>
                 </div>
               </div>
             )

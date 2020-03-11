@@ -70,6 +70,15 @@ export const addTaskDocument = (collectionKey, task) => {
     })
 }
 
+export const updateTaskDocument = (collectionKey, key, newStage) => {
+  let stringKey = key.toString()
+  db.collection(collectionKey)
+    .doc(stringKey)
+    .update({
+      stage: newStage
+    })
+}
+
 export const auth = firebase.auth()
 export const firestore = firebase.firestore()
 
